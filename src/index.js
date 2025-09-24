@@ -4,7 +4,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -24,7 +24,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${port}`,
+        url: `https://videogames-api-bbf46be3e1a8.herokuapp.com`,
       },
     ],
   },
@@ -221,7 +221,8 @@ app.get("/banners", (req, res) => {
 });
 
 // 🚀 Start server
-app.listen(port, () => {
-  console.log(`API rodando em http://localhost:${port}`);
-  console.log(`Swagger disponível em http://localhost:${port}/api-docs`);
+
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
+  console.log(`📖 Swagger: http://localhost:${PORT}/api-docs`);
 });
