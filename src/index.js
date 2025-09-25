@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+app.use("/images", express.static("public/images"));
+
 // 🗂️ "Banco de dados" em memória
 let games = [];
 let currentId = 1;
@@ -213,9 +215,10 @@ app.delete("/games/:id", (req, res) => {
  */
 app.get("/banners", (req, res) => {
   const banners = [
-    "https://example.com/images/banner1.jpg",
-    "https://example.com/images/banner2.jpg",
-    "https://example.com/images/banner3.jpg",
+    "https://videogames-api-bbf46be3e1a8.herokuapp.com/images/banner1.png",
+    "https://videogames-api-bbf46be3e1a8.herokuapp.com/images/banner2.png",
+    "https://videogames-api-bbf46be3e1a8.herokuapp.com/images/banner3.png",
+    "https://videogames-api-bbf46be3e1a8.herokuapp.com/images/banner4.png",
   ];
   res.json(banners);
 });
